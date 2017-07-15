@@ -64,10 +64,10 @@ Brain controlled Artificial Intelligence Chess
     <p>The source is hosted on Github <a href="https://github.com/shaileshgoogler/UnitedByHCL">at this location.</a></p>
     <h2>History</h2>
     <ul>
-        <li>July 9, 2017 - Version 1.0</li>
+        <li>July 15, 2017 - Version 1.0</li>
     </ul>
     <p>
         On the other hand, it might be useful to setup your own start position (also new feature) when studying the code.
     </p>
-    <p>Finally, thanks to my team mates and Professor who put up with me during these few weeks in the period of Hackathon.</p>
+    <p>Finally, thanks to my Team Mates and Professor who put up with me during these few weeks in the period of Hackathon.</p>
     <p>Happy code reading and waiting to get there at transford <u>your</u> chess programming learning!</p>
