@@ -54,7 +54,7 @@ Brain controlled Artificial Intelligence Chess
         <li><strike>How many recursions it took to find the score. A deeper search replaces scores that are found less deeper for the same position (5 bits)</strike><b>Updated</b></li>
         <li>Draw By Repetion, Unsufficient Material, Stale Mate and Mate (4 bits, one bit each)</li>
     </ol>
-    <p><b>Update: </b><i>I realized that the depth has nothing to do with the score of the board. It was removed in version 1.1.1 and code was simplified and performance little bit better also.</i></p>
+    <p><b>Update: </b><i>I realized that the depth has nothing to do with the score of the board. I removed and simplified the code and it's performance little bit better also.</i></p>
     <p>The engine analyses about 50k positions/sec on my dual core 2.7Ghz laptop. Which is mostly enough to see about five or six moves ahead in the middle game. Most average skilled chess players (like me) should have quite some difficulty beating the engine given the same time to think. When testing it in a chess.com CPU game, I estimate it has a rating around 1300. I think the best way to improve its performance would be to replace board representation with a bit board. That would increase move generation and position evaluation so even deeper searches could be performed.</p>
     <h2>What I Have Learned During this Project</h2>
     <p>It is very important to write unit tests and perhaps even write them first. In TDD, you have to have a failing test before you can write the function. This is an excellent way of assuring everything is tested.</p>
