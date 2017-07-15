@@ -16,7 +16,7 @@ Brain controlled Artificial Intelligence Chess
         <li>Parallel threads to increase performance of engine if multiple cores are available.</li>
         <li>The chess board is represented by a single square[64] array. (Bit-boards are a lot faster but perhaps little bit more complicated.)</li>
         <li>Score of the position is based on material and a positional score for each piece. In the opening, a few basic opening principles give extra points. Special calculations are also performed in the end game.</li>
-        <li><i> <a href="https://en.wikipedia.org/wiki/NeuroSky">NeuroSky</a>: For brain controlled object movement</i></li>
+        <li><a href="https://en.wikipedia.org/wiki/NeuroSky">NeuroSky</a>: For brain controlled object movement</li>
     </ul>
     <h2>The Chess Engine</h2>
     <p>This is how my chess engine is implemented.</p>
