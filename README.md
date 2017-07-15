@@ -1,7 +1,7 @@
 # UnitedByHCL
 Brain controlled Artificial Intelligence Chess for Hackathon #UnitedByHCL
 <pre>
-Title:       Test Driven Chess Artificial Intelligence
+Title:       Brain controlled Chess Artificial Intelligence
 Author:      Shailesh Singh
 Email:       shailesh@mit.tc
 Language:    C# 6.0
