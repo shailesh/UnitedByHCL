@@ -30,7 +30,6 @@ namespace Chess
         }
 
         /// <summary>
-        /// Gets a square relative to this piece. If it is outside the board it returns null.
         /// </summary>
         /// <param name="rankDiff"></param>
         /// <param name="fileDiff"></param>
@@ -309,11 +308,10 @@ namespace Chess
             if (attacker.Square.Rank != square.Rank && attacker.Square.File != square.File)
                 return false;
 
-            //check pieces between
             var deltaF = square.File - attacker.Square.File;
             var deltaR = square.Rank - attacker.Square.Rank;
-            var dirF = deltaF == 0 ? 0 : deltaF / Math.Abs(deltaF); //-1 or +1
-            var dirR = deltaR == 0 ? 0 : deltaR / Math.Abs(deltaR); //-1 or +1
+            var dirF = deltaF == 0 ? 0 : deltaF / Math.Abs(deltaF);
+            var dirR = deltaR == 0 ? 0 : deltaR / Math.Abs(deltaR);
 
             var f = attacker.Square.File;
             var r = attacker.Square.Rank;
@@ -368,10 +366,6 @@ namespace Chess
 
         public override int PositionValue(Game game) {
             return 0;
-            //var pawns = game.GetPlayer(this).Pawns;
-            //Bad bishops.
-            //Two minus points for every pawn on same square color as the bishops color.
-            //return pawns.Count(p => p.Square?.Color == Color) * -2;
         }
 
         public override bool Attacks(Square square, Board board) {
@@ -382,15 +376,14 @@ namespace Chess
             if (square.Piece != null && square.Piece.Color == attacker.Color)
                 return false;
 
-            //check pieces between
             var deltaF = square.File - attacker.Square.File;
             var deltaR = square.Rank - attacker.Square.Rank;
 
             if (Math.Abs(deltaF) != Math.Abs(deltaR))
                 return false;
 
-            var dirF = deltaF / Math.Abs(deltaF); //-1 or +1
-            var dirR = deltaR / Math.Abs(deltaR); //-1 or +1
+            var dirF = deltaF / Math.Abs(deltaF);
+            var dirR = deltaR / Math.Abs(deltaR);
 
             var f = attacker.Square.File;
             var r = attacker.Square.Rank;
@@ -465,7 +458,6 @@ namespace Chess
             if (square.Piece != null && square.Piece.Color == Color)
                 return false;
 
-            //Check pieces between
             var deltaF = Square.File - square.File;
             var deltaR = Square.Rank - square.Rank;
             var absF = Math.Abs(deltaF);
@@ -510,7 +502,6 @@ namespace Chess
                 pawnMoves.Add(new Move(this, square));
             }
 
-            //captures
             squares = Color == Color.White ? Square.WhitePawnCapturePatterns : Square.BlackPawnCapturePatterns;
             foreach (var square in squares) {
                 if (square.Piece != null && square.Piece.Color != Color)
@@ -591,7 +582,6 @@ namespace Chess
 
             if (!game.EnPassantFile.HasValue)
                 return;
-
             var oppLastMovedPiece = game.OtherPlayer.Moves.FirstOrDefault()?.Piece;
             if (!(oppLastMovedPiece is Pawn))
                 return;

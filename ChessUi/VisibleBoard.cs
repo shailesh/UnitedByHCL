@@ -155,7 +155,7 @@ namespace ChessUi
                     {
                         if (lastMove.FromSquare == chessSquare || lastMove.ToSquare == chessSquare)
                             g.FillRectangle(LastMoveBrush, rect);
-                        
+
                     }
 
                     Squares.Add(chessSquare, rect);
@@ -369,9 +369,6 @@ namespace ChessUi
                         G = pv;
                         B = qv;
                         break;
-
-                    // Just in case we overshoot on our math by a little, we put these here. Since its a switch it won't slow us down at all to put these here.
-
                     case 6:
                         R = V;
                         G = tv;
@@ -382,12 +379,8 @@ namespace ChessUi
                         G = pv;
                         B = qv;
                         break;
-
-                    // The color is not defined, we should throw an error.
-
                     default:
-                        //LFATAL("i Value error in Pixel conversion, Value is %d", i);
-                        R = G = B = V; // Just pretend its black/white
+                        R = G = B = V; // color
                         break;
                 }
             }
@@ -398,7 +391,6 @@ namespace ChessUi
         }
 
         /// <summary>
-        /// Clamp a value to 0-255
         /// </summary>
         static int Clamp(int i)
         {

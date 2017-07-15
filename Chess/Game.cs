@@ -29,7 +29,7 @@ namespace Chess
         public bool IsStaleMate { get; private set; }
         public Player Winner { get; set; }
         private readonly Stack<ulong> HashHistory = new Stack<ulong>();
-        
+
         private int MovesSinceLastCaptureOrPawnMove = 0;
 
         public void New()
@@ -273,7 +273,7 @@ namespace Chess
             SwitchPlayer();
             move.PreviousHash = Hash;
             PositionsDatabase.Instance.UpdateHash(move);
-            
+
             Hash ^= move.Hash;
         }
 
@@ -467,13 +467,12 @@ namespace Chess
             var list = new List<Square>(10);
             if (dir == -1)
             {
-                var s = king.GetSquare(0, -3, this); //The b-file square.
+                var s = king.GetSquare(0, -3, this);
                 if (s.Piece != null)
                     return true;
                 list.Add(s);
             }
 
-            //Checks the two squares closest to king. As in king side castling.
             while (sqr != toSquare)
             {
                 file += dir;
@@ -492,7 +491,6 @@ namespace Chess
         }
         private void SetScore(Move move)
         {
-            //It is only interesting to check for insufficient material if the material has decreased.
             if (move.Capture != null && InsufficientMaterial())
             {
                 move.ScoreInfo |= ScoreInfo.InsufficientMaterial;
@@ -502,7 +500,6 @@ namespace Chess
 
             if (MovesSinceLastCaptureOrPawnMove > 50)
             {
-                //move.ScoreInfo |= ScoreInfo.FiftyMoveRule; There is no room in DB to store the reason.
                 move.ScoreAfterMove = 0;
                 return;
             }
@@ -531,7 +528,6 @@ namespace Chess
 
         private int EndGameScore(Player player)
         {
-            //Distance from center
             var kingRank = player.King.Square.Rank;
             var kingFile = player.King.Square.File;
             var kingCloseBorder = kingRank == Rank._2 || kingRank == Rank._7 || kingFile == File.B || kingFile == File.G;
@@ -557,21 +553,17 @@ namespace Chess
         private int OpeningScore(Player player)
         {
 
-            //It is bad if queen moves in the opening.
             var queenScore = (player.Queen?.MoveCount ?? 0) * -6;
 
-            //Better if one knight or bishop has moved exactly one time during opening.
             var kbsMovedToMuch = player.KnightsBishops.Count(x => x.MoveCount > 1);
             var kbsMovedOnce = player.KnightsBishops.Count(x => x.MoveCount == 1);
 
-            var kbs = kbsMovedOnce * 3 - kbsMovedToMuch * -2; //knights and bishops score
+            var kbs = kbsMovedOnce * 3 - kbsMovedToMuch * -2;
 
             return kbs + queenScore;
         }
 
         /// <summary>
-        /// Evaluates all aspects of a move. Legality and score after move.
-        /// This is used in move generation.
         /// </summary>
         /// <param name="move"></param>
         /// <param name="recursions"></param>
@@ -580,25 +572,22 @@ namespace Chess
         {
             Debug.Assert(!move.IsLegal.HasValue);
 
-            //Actually performs a psuedo legal move.
             PerformLegalMove(move);
 
-            //Check in db if position is legal.
             PositionsDatabase.Instance.GetValue(this, move);
 
-            if (!move.IsLegal.HasValue) //Not known, we have to spend time investigating.
+            if (!move.IsLegal.HasValue)
             {
-                if (KingChecked(OtherPlayer)) //Players are switched, so this is actually own king in check.
+                if (KingChecked(OtherPlayer))
                 {
                     move.IsLegal = false;
-                    PositionsDatabase.Instance.Store(this, move, 100); //Store it, so we don't have to check again.
+                    PositionsDatabase.Instance.Store(this, move, 100);
                     Undo(move);
                     return;
                 }
                 move.IsCheck = KingChecked(CurrentPlayer);
             }
             else if (!move.IsLegal.Value)
-            { //Position is already know not to be legal.
                 Undo(move);
                 return;
             }
@@ -613,7 +602,7 @@ namespace Chess
             }
 
             if (!move.ScoreAfterMove.HasValue)
-            { //Score can be null if we are on a deeper search, 
+            {
                 if (quiteSearch)
                     move.ScoreAfterMove = Material;
                 else
@@ -628,9 +617,8 @@ namespace Chess
         private bool InsufficientMaterial()
         {
             var count = WhitePlayer.Pieces.Count() + BlackPlayer.Pieces.Count();
-            if (count == 2) //King and King
+            if (count == 2)
                 return true;
-            //At least one player has more pieces than just one knight or bishop
             return count <= 3 &&
                     (WhitePlayer.Pieces.Any(p => p.Value == 300) ||
                      BlackPlayer.Pieces.Any(p => p.Value == 300));
@@ -722,7 +710,7 @@ namespace Chess
                 pawn.Square = move.FromSquare;
                 move.FromSquare.Piece = pawn;
                 move.Piece = pawn;
-                CurrentPlayer.Material -= 800; //remove queen, add pawn
+                CurrentPlayer.Material -= 800;
                 CurrentPlayer.Pieces.Add(pawn);
             }
             BlackPlayer.IsChecked = move.BlackWasChecked;
@@ -734,8 +722,6 @@ namespace Chess
 
         private void UnCastle(Move move)
         {
-            //The king is moved back.
-            //Placing the rook on the corner square.
             var king = (King)move.Piece;
             Square fromRookSquare = null, toRookSquare = null;
             if (move.ToSquare.File == File.G)
@@ -769,8 +755,6 @@ namespace Chess
                 var pieceCopy = piece.Copy(gameCopy.Board.Squares);
                 if (pieceCopy.Square != null)
                     gameCopy.AddPiece(piece.Square.File, piece.Square.Rank, pieceCopy);
-                //else: The piece was captured and connected to the game through the move.
-                //But since CopyPosition does not copy moves we forget about the piece
             }
         }
 
@@ -888,7 +872,6 @@ namespace Chess
             sb.Append(" ");
             sb.Append(CurrentPlayer == WhitePlayer ? "w" : "b");
             sb.Append(" ");
-            //todo: also check king and rook placement and movecount
             var castlWhite = WhitePlayer.CastlingToFEN();
             var castlBlack = BlackPlayer.CastlingToFEN();
             sb.Append(castlWhite + castlBlack);
@@ -909,7 +892,6 @@ namespace Chess
         public void LoadFEN(string fenString)
         {
             Reset();
-            //rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2
             var split = fenString.Split(' ');
             var files = split[0].Split('/');
             for (int i = 0; i < 8; i++)
@@ -954,7 +936,6 @@ namespace Chess
     public static class GameExtensions
     {
         /// <summary>
-        /// string format. E.g. e1bR (black Rook)
         /// </summary>
         /// <param name="game"></param>
         /// <param name="pieceString"></param>

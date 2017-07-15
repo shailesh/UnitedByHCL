@@ -62,7 +62,6 @@ namespace Chess
             Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.B, Rank._1, File.C, Rank._3)));
 
             var evaluation = engine.BestMoveDeepeningSearch(Game, TimeSpan.FromSeconds(3));
-            //not expecting a queen sacrifice
             Console.WriteLine(evaluation);
 
             Assert.AreNotEqual("Qxg2", evaluation.Move.ToString());
@@ -142,7 +141,6 @@ namespace Chess
         [TestMethod]
         public void WhiteToPlay_MatesInTwo_Deepening()
         {
-            //see image mate in two white.png
             var game = new Game();
             game.New();
             game.Reset();
@@ -166,7 +164,6 @@ namespace Chess
         [TestMethod]
         public void BlackToPlay_MateInTwo_Deepening()
         {
-            //see image mate in two black.png
             var game = new Game();
             game.New();
             game.Reset();
@@ -225,7 +222,6 @@ namespace Chess
                 .AddPiece("g6bP").AddPiece("d6bP")
                 .AddPiece("g7bK")
                 .AddPiece("f8bR");
-            //prevent generation of illegal moves.
             game.WhitePlayer.Pieces.ForEach(x => x.MoveCount = 2);
             game.BlackPlayer.Pieces.ForEach(x => x.MoveCount = 2);
             game.CurrentPlayer = game.BlackPlayer;
@@ -235,3 +231,5 @@ namespace Chess
             Console.WriteLine(move);
             Assert.AreEqual("Rf4+", move.Move.ToString());
         }
+    }
+}

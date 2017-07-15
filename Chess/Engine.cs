@@ -17,9 +17,7 @@ namespace Chess
     {
         public Engine()
         {
-
             CoreCount = Environment.ProcessorCount;
-
         }
 
         public TimeSpan SearchFor { get; set; }
@@ -120,7 +118,6 @@ namespace Chess
                     if (!mateFound)
                     {
                         var gameCopy = game.Copy();
-                        //Each thread needs its own Game and moves not to collide with other threads.
                         var copyMoves = gameCopy.GetLegalNextMoves(playerColor);
                         var copyMove = copyMoves.Single(cm => cm.ToCommandString() == command);
                         gameCopy.PerformLegalMove(copyMove);
@@ -168,7 +165,7 @@ namespace Chess
             var evaluations = childMoves.Select(x => new Evaluation { CmdsString = x.ToCommandString(), Move = x }).ToArray();
             var bestEvaluatedMove = BestAtDepth(game, evaluations, depth);
             ThinkingFor = null;
-            return bestEvaluatedMove;// childMoves.Single(x => x.ToCommandString() == bestEvaluatedMove.CmdsString);
+            return bestEvaluatedMove;
         }
 
         private int AlphaBeta(Game gameCopy, Move node, int alpha, int beta, bool maximizingPlayer, int depth, int recursion)
@@ -180,7 +177,7 @@ namespace Chess
             }
 
             NodeVisit++;
-            int bestVal;// = maximizingPlayer ? alpha : beta;
+            int bestVal;
             if (depth <= 0 || gameCopy.Ended)
             {
                 if (node.Capture != null)
@@ -217,7 +214,7 @@ namespace Chess
                     }
             }
             else
-            { //white player
+            {
                 bestVal = beta;
                 var childern = gameCopy.GetLegalNextMoves(Color.White);
                 if (!childern.Any())
@@ -285,7 +282,7 @@ namespace Chess
                     }
             }
             else
-            { //white player
+            {
                 bestVal = beta;
                 var childern = gameCopy.GetLegalCaptureMoves(Color.White);
                 if (!childern.Any())
@@ -328,7 +325,6 @@ namespace Chess
         }
 
         /// <summary>
-        /// This evaluates the position when the opponent has no legal moves. It is either mate or stale mate.
         /// </summary>
         /// <param name="gameCopy"></param>
         /// <param name="node"></param>
@@ -339,7 +335,7 @@ namespace Chess
             if (gameCopy.CurrentPlayer.IsChecked)
             {
                 node.ScoreInfo |= ScoreInfo.Mate;
-                node.ScoreAfterMove = 8000 - recursion; //maximizing variable is used to negate value by calling function.
+                node.ScoreAfterMove = 8000 - recursion;
                 gameCopy.Winner = gameCopy.OtherPlayer;
             }
             else
@@ -363,52 +359,8 @@ namespace Chess
             QuiteLeafVisits = 0;
             PositionsDatabase.Instance.ResetCounters();
         }
-
-        //from http://will.thimbleby.net/algorithms/doku.php?id=minimax_search_with_alpha-beta_pruning
-        //    function alphaBeta(node, alpha, beta, maximizingPlayer)
-        //    {
-        //        var bestValue;
-        //        if (node.children.length === 0)
-        //        {
-        //            bestValue = node.data;
-        //        }
-        //        else if (maximizingPlayer)
-        //        {
-        //            bestValue = alpha;
-
-        //            // Recurse for all children of node.
-        //            for (var i = 0, c = node.children.length; i < c; i++)
-        //            {
-        //                var childValue = alphaBeta(node.children[i], bestValue, beta, false);
-        //                bestValue = Math.max(bestValue, childValue);
-        //                if (beta <= bestValue)
-        //                {
-        //                    break;
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            bestValue = beta;
-
-        //            // Recurse for all children of node.
-        //            for (var i = 0, c = node.children.length; i < c; i++)
-        //            {
-        //                var childValue = alphaBeta(node.children[i], alpha, bestValue, true);
-        //                bestValue = Math.min(bestValue, childValue);
-        //                if (bestValue <= alpha)
-        //                {
-        //                    break;
-        //                }
-        //            }
-        //        }
-        //        return bestValue;
-        //    }
-
     }
-
     /// <summary>
-    /// This is like a wrapper for the best move found by engine. It also has a few nice data about the engines move.
     /// </summary>
     public class Evaluation
     {

@@ -3,12 +3,10 @@
     partial class ChessForm
     {
         /// <summary>
-        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,8 +21,6 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -96,9 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQueen)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
+
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderNumbeInGame,
             this.columnHeaderWhite,
@@ -113,23 +107,15 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.listview_MouseMove);
-            // 
-            // columnHeaderNumbeInGame
-            // 
+
             this.columnHeaderNumbeInGame.Text = "No";
-            // 
-            // columnHeaderWhite
-            // 
+
             this.columnHeaderWhite.Text = "White";
             this.columnHeaderWhite.Width = 70;
-            // 
-            // columnHeaderBlack
-            // 
+
             this.columnHeaderBlack.Text = "Black";
             this.columnHeaderBlack.Width = 70;
-            // 
-            // menuStrip1
-            // 
+
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
@@ -141,9 +127,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(1103, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
+
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.loadToolStripMenuItem,
@@ -151,33 +135,25 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "&File";
-            // 
-            // newToolStripMenuItem
-            // 
+
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.newToolStripMenuItem.Text = "&New game";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // loadToolStripMenuItem
-            // 
+
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.loadToolStripMenuItem.Text = "&Open";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
+
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // editToolStripMenuItem
-            // 
+
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.boardToolStripMenuItem,
             this.undoToolStripMenuItem,
@@ -186,58 +162,44 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.editToolStripMenuItem.Text = "&Edit";
-            // 
-            // boardToolStripMenuItem
-            // 
+
             this.boardToolStripMenuItem.CheckOnClick = true;
             this.boardToolStripMenuItem.Name = "boardToolStripMenuItem";
             this.boardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.boardToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.boardToolStripMenuItem.Text = "&Board";
             this.boardToolStripMenuItem.Click += new System.EventHandler(this.boardToolStripMenuItem_Click);
-            // 
-            // undoToolStripMenuItem
-            // 
+
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
-            // 
-            // colorsToolStripMenuItem
-            // 
+
             this.colorsToolStripMenuItem.Name = "colorsToolStripMenuItem";
             this.colorsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.colorsToolStripMenuItem.Text = "&Colors";
             this.colorsToolStripMenuItem.Click += new System.EventHandler(this.colorsToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
+
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.piecesToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
             this.viewToolStripMenuItem.Text = "&Options";
-            // 
-            // piecesToolStripMenuItem
-            // 
+
             this.piecesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newspaperToolStripMenuItem,
             this.regilarToolStripMenuItem});
             this.piecesToolStripMenuItem.Name = "piecesToolStripMenuItem";
             this.piecesToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
             this.piecesToolStripMenuItem.Text = "Pieces";
-            // 
-            // newspaperToolStripMenuItem
-            // 
+
             this.newspaperToolStripMenuItem.CheckOnClick = true;
             this.newspaperToolStripMenuItem.Name = "newspaperToolStripMenuItem";
             this.newspaperToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.newspaperToolStripMenuItem.Text = "Newspaper";
             this.newspaperToolStripMenuItem.Click += new System.EventHandler(this.newspaperToolStripMenuItem_Click);
-            // 
-            // regilarToolStripMenuItem
-            // 
+
             this.regilarToolStripMenuItem.Checked = true;
             this.regilarToolStripMenuItem.CheckOnClick = true;
             this.regilarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -245,9 +207,7 @@
             this.regilarToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.regilarToolStripMenuItem.Text = "Regular";
             this.regilarToolStripMenuItem.Click += new System.EventHandler(this.regilarToolStripMenuItem_Click);
-            // 
-            // checkBoxAIblack
-            // 
+
             this.checkBoxAIblack.AutoSize = true;
             this.checkBoxAIblack.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBoxAIblack.Location = new System.Drawing.Point(13, 34);
@@ -258,9 +218,7 @@
             this.checkBoxAIblack.Text = "CPU";
             this.checkBoxAIblack.UseVisualStyleBackColor = true;
             this.checkBoxAIblack.CheckedChanged += new System.EventHandler(this.checkBoxAIblack_CheckedChanged);
-            // 
-            // checkBoxAI_white
-            // 
+
             this.checkBoxAI_white.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.checkBoxAI_white.AutoSize = true;
             this.checkBoxAI_white.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -272,9 +230,7 @@
             this.checkBoxAI_white.Text = "CPU";
             this.checkBoxAI_white.UseVisualStyleBackColor = true;
             this.checkBoxAI_white.CheckedChanged += new System.EventHandler(this.checkBoxAI_white_CheckedChanged);
-            // 
-            // numericUpDownThinkBlack
-            // 
+
             this.numericUpDownThinkBlack.Location = new System.Drawing.Point(125, 34);
             this.numericUpDownThinkBlack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownThinkBlack.Minimum = new decimal(new int[] {
@@ -290,27 +246,21 @@
             0,
             0,
             0});
-            // 
-            // label3
-            // 
+
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(80, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Think";
-            // 
-            // label4
-            // 
+
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(177, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "sec";
-            // 
-            // label5
-            // 
+
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(177, 625);
@@ -318,9 +268,7 @@
             this.label5.Size = new System.Drawing.Size(30, 17);
             this.label5.TabIndex = 12;
             this.label5.Text = "sec";
-            // 
-            // label6
-            // 
+
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(80, 625);
@@ -328,9 +276,7 @@
             this.label6.Size = new System.Drawing.Size(43, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Think";
-            // 
-            // numericUpDownThinkWhite
-            // 
+
             this.numericUpDownThinkWhite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.numericUpDownThinkWhite.Location = new System.Drawing.Point(125, 624);
             this.numericUpDownThinkWhite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -347,18 +293,14 @@
             0,
             0,
             0});
-            // 
-            // labelScoreAndLine
-            // 
+
             this.labelScoreAndLine.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelScoreAndLine.AutoSize = true;
             this.labelScoreAndLine.Location = new System.Drawing.Point(435, 628);
             this.labelScoreAndLine.Name = "labelScoreAndLine";
             this.labelScoreAndLine.Size = new System.Drawing.Size(0, 17);
             this.labelScoreAndLine.TabIndex = 11;
-            // 
-            // buttonFlip
-            // 
+
             this.buttonFlip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonFlip.Location = new System.Drawing.Point(710, 30);
             this.buttonFlip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -368,16 +310,12 @@
             this.buttonFlip.Text = "Flip";
             this.buttonFlip.UseVisualStyleBackColor = true;
             this.buttonFlip.Click += new System.EventHandler(this.buttonFlip_Click);
-            // 
-            // timer1
-            // 
+
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.listView1);
             this.panel2.Controls.Add(this.panelEdit);
@@ -386,9 +324,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(312, 550);
             this.panel2.TabIndex = 14;
-            // 
-            // panelEdit
-            // 
+
             this.panelEdit.AllowDrop = true;
             this.panelEdit.Controls.Add(this.label7);
             this.panelEdit.Controls.Add(this.buttonClear);
@@ -414,9 +350,7 @@
             this.panelEdit.Size = new System.Drawing.Size(312, 357);
             this.panelEdit.TabIndex = 2;
             this.panelEdit.DragEnter += new System.Windows.Forms.DragEventHandler(this.panel1_DragEnter);
-            // 
-            // label7
-            // 
+
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(120, 203);
@@ -425,9 +359,7 @@
             this.label7.Size = new System.Drawing.Size(70, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Castling";
-            // 
-            // buttonClear
-            // 
+
             this.buttonClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonClear.Location = new System.Drawing.Point(0, 325);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -437,9 +369,7 @@
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
-            // 
-            // buttonDone
-            // 
+
             this.buttonDone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDone.Location = new System.Drawing.Point(241, 325);
             this.buttonDone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -449,9 +379,7 @@
             this.buttonDone.Text = "Done";
             this.buttonDone.UseVisualStyleBackColor = true;
             this.buttonDone.Click += new System.EventHandler(this.buttonDone_Click);
-            // 
-            // panel3
-            // 
+
             this.panel3.Controls.Add(this.radioButtonBlackMoves);
             this.panel3.Controls.Add(this.radioButtonWhiteMoves);
             this.panel3.Location = new System.Drawing.Point(1, 272);
@@ -459,9 +387,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(309, 52);
             this.panel3.TabIndex = 4;
-            // 
-            // radioButtonBlackMoves
-            // 
+
             this.radioButtonBlackMoves.AutoSize = true;
             this.radioButtonBlackMoves.Location = new System.Drawing.Point(175, 18);
             this.radioButtonBlackMoves.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -471,9 +397,7 @@
             this.radioButtonBlackMoves.Text = "Black Moves";
             this.radioButtonBlackMoves.UseVisualStyleBackColor = true;
             this.radioButtonBlackMoves.CheckedChanged += new System.EventHandler(this.radioButtonBlackMoves_CheckedChanged);
-            // 
-            // radioButtonWhiteMoves
-            // 
+
             this.radioButtonWhiteMoves.AutoSize = true;
             this.radioButtonWhiteMoves.Checked = true;
             this.radioButtonWhiteMoves.Location = new System.Drawing.Point(13, 18);
@@ -485,9 +409,7 @@
             this.radioButtonWhiteMoves.Text = "White Moves";
             this.radioButtonWhiteMoves.UseVisualStyleBackColor = true;
             this.radioButtonWhiteMoves.CheckedChanged += new System.EventHandler(this.radioButtonWhiteMoves_CheckedChanged);
-            // 
-            // label2
-            // 
+
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 230);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -495,9 +417,7 @@
             this.label2.Size = new System.Drawing.Size(42, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Black";
-            // 
-            // checkBoxBCK
-            // 
+
             this.checkBoxBCK.AutoSize = true;
             this.checkBoxBCK.Checked = true;
             this.checkBoxBCK.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -509,9 +429,7 @@
             this.checkBoxBCK.Text = "Short";
             this.checkBoxBCK.UseVisualStyleBackColor = true;
             this.checkBoxBCK.CheckedChanged += new System.EventHandler(this.checkBoxBCK_CheckedChanged);
-            // 
-            // label1
-            // 
+
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(43, 256);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -519,9 +437,7 @@
             this.label1.Size = new System.Drawing.Size(44, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "White";
-            // 
-            // checkBoxBCQ
-            // 
+
             this.checkBoxBCQ.AutoSize = true;
             this.checkBoxBCQ.Checked = true;
             this.checkBoxBCQ.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -533,9 +449,7 @@
             this.checkBoxBCQ.Text = "Long";
             this.checkBoxBCQ.UseVisualStyleBackColor = true;
             this.checkBoxBCQ.CheckedChanged += new System.EventHandler(this.checkBoxBCQ_CheckedChanged);
-            // 
-            // checkBoxWCK
-            // 
+
             this.checkBoxWCK.AutoSize = true;
             this.checkBoxWCK.Checked = true;
             this.checkBoxWCK.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -547,9 +461,7 @@
             this.checkBoxWCK.Text = "Short";
             this.checkBoxWCK.UseVisualStyleBackColor = true;
             this.checkBoxWCK.CheckedChanged += new System.EventHandler(this.checkBoxWCK_CheckedChanged);
-            // 
-            // checkBoxWCQ
-            // 
+
             this.checkBoxWCQ.AutoSize = true;
             this.checkBoxWCQ.Checked = true;
             this.checkBoxWCQ.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -561,9 +473,7 @@
             this.checkBoxWCQ.Text = "Long";
             this.checkBoxWCQ.UseVisualStyleBackColor = true;
             this.checkBoxWCQ.CheckedChanged += new System.EventHandler(this.checkBoxWCQ_CheckedChanged);
-            // 
-            // radioButtonBlack
-            // 
+
             this.radioButtonBlack.AutoSize = true;
             this.radioButtonBlack.Location = new System.Drawing.Point(15, 52);
             this.radioButtonBlack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -573,9 +483,7 @@
             this.radioButtonBlack.Text = "Black";
             this.radioButtonBlack.UseVisualStyleBackColor = true;
             this.radioButtonBlack.CheckedChanged += new System.EventHandler(this.radioButtonBlack_CheckedChanged);
-            // 
-            // radioButtonWhite
-            // 
+
             this.radioButtonWhite.AutoSize = true;
             this.radioButtonWhite.Checked = true;
             this.radioButtonWhite.Location = new System.Drawing.Point(15, 23);
@@ -587,9 +495,7 @@
             this.radioButtonWhite.Text = "White";
             this.radioButtonWhite.UseVisualStyleBackColor = true;
             this.radioButtonWhite.CheckedChanged += new System.EventHandler(this.radioButtonWhite_CheckedChanged);
-            // 
-            // pictureBoxPawn
-            // 
+
             this.pictureBoxPawn.Image = global::ChessUi.Properties.Resources.WhitePawn;
             this.pictureBoxPawn.Location = new System.Drawing.Point(104, 100);
             this.pictureBoxPawn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -601,9 +507,7 @@
             this.pictureBoxPawn.TabStop = false;
             this.pictureBoxPawn.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.pictureBox_GiveFeedback);
             this.pictureBoxPawn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            // 
-            // pictureBoxRook
-            // 
+
             this.pictureBoxRook.Image = global::ChessUi.Properties.Resources.WhiteRook;
             this.pictureBoxRook.Location = new System.Drawing.Point(104, 1);
             this.pictureBoxRook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -615,9 +519,7 @@
             this.pictureBoxRook.TabStop = false;
             this.pictureBoxRook.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.pictureBox_GiveFeedback);
             this.pictureBoxRook.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            // 
-            // pictureBoxKnight
-            // 
+
             this.pictureBoxKnight.Image = global::ChessUi.Properties.Resources.WhiteKnight;
             this.pictureBoxKnight.Location = new System.Drawing.Point(205, 1);
             this.pictureBoxKnight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -629,9 +531,7 @@
             this.pictureBoxKnight.TabStop = false;
             this.pictureBoxKnight.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.pictureBox_GiveFeedback);
             this.pictureBoxKnight.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            // 
-            // pictureBoxBishop
-            // 
+
             this.pictureBoxBishop.Image = global::ChessUi.Properties.Resources.WhiteBishop;
             this.pictureBoxBishop.Location = new System.Drawing.Point(1, 100);
             this.pictureBoxBishop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -643,9 +543,7 @@
             this.pictureBoxBishop.TabStop = false;
             this.pictureBoxBishop.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.pictureBox_GiveFeedback);
             this.pictureBoxBishop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            // 
-            // pictureBoxQueen
-            // 
+
             this.pictureBoxQueen.Image = global::ChessUi.Properties.Resources.WhiteQueen;
             this.pictureBoxQueen.Location = new System.Drawing.Point(209, 100);
             this.pictureBoxQueen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -657,9 +555,7 @@
             this.pictureBoxQueen.TabStop = false;
             this.pictureBoxQueen.GiveFeedback += new System.Windows.Forms.GiveFeedbackEventHandler(this.pictureBox_GiveFeedback);
             this.pictureBoxQueen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseDown);
-            // 
-            // buttonEditBoard
-            // 
+
             this.buttonEditBoard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEditBoard.Location = new System.Drawing.Point(910, 30);
             this.buttonEditBoard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -669,12 +565,10 @@
             this.buttonEditBoard.Text = "Edit";
             this.buttonEditBoard.UseVisualStyleBackColor = true;
             this.buttonEditBoard.Click += new System.EventHandler(this.buttonEditBoard_Click);
-            // 
-            // panel1
-            // 
+
             this.panel1.AllowDrop = true;
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.progressBarBottom);
@@ -692,36 +586,28 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
-            // 
-            // progressBarBottom
-            // 
-            this.progressBarBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+
+            this.progressBarBottom.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarBottom.Location = new System.Drawing.Point(1, 543);
             this.progressBarBottom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBarBottom.Name = "progressBarBottom";
             this.progressBarBottom.Size = new System.Drawing.Size(763, 4);
             this.progressBarBottom.TabIndex = 0;
-            // 
-            // progressBarTop
-            // 
-            this.progressBarTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+
+            this.progressBarTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarTop.Location = new System.Drawing.Point(1, 0);
             this.progressBarTop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.progressBarTop.Name = "progressBarTop";
             this.progressBarTop.Size = new System.Drawing.Size(763, 4);
             this.progressBarTop.TabIndex = 0;
-            // 
-            // fENToolStripMenuItem
-            // 
+
             this.fENToolStripMenuItem.Name = "fENToolStripMenuItem";
             this.fENToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.fENToolStripMenuItem.Text = "&FEN";
             this.fENToolStripMenuItem.Click += new System.EventHandler(this.fENToolStripMenuItem_Click);
-            // 
-            // ChessForm
-            // 
+
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1103, 654);

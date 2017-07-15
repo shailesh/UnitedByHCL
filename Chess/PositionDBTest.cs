@@ -34,7 +34,7 @@ namespace Chess
             Assert.AreEqual(game.Hash, hash1);
 
         }
-
+        
         [TestMethod]
         public void ScoreBitShift1() {
             var commandNo = (byte)124;
@@ -62,10 +62,10 @@ namespace Chess
             var legal = false;
             var check = false;
             var score = 0;
-            var scoreInfo = (ScoreInfo)0;
+            var scoreInfo = (ScoreInfo)0;//ScoreInfo.DrawByRepetion | ScoreInfo.StaleMate;
             var depth = 0;
             var build = PositionsDatabase.Pack(commandNo, legal, check ,score, scoreInfo, depth);
-
+            
             PositionsDatabase.Unpack(build, out byte oCommandNo, out bool oLegal, out bool oCheck, out ScoreInfo oScoreInfo, out int oScore, out int oDepth);
 
             Assert.AreEqual(commandNo, oCommandNo);

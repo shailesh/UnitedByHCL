@@ -57,10 +57,8 @@ namespace Chess
             Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.B, Rank._1, File.C, Rank._3)));
             var evaluation = engine.BestMoveAtDepth(Game, 2);
             Console.WriteLine(evaluation);
-            //not expecting a queen sacrifice
             Assert.AreNotEqual("Qxg2", evaluation.Move.ToString());
             Assert.AreNotEqual("Qxa2", evaluation.Move.ToString());
-            //Assert.AreEqual("Qe5+", evaluation.Move.ToString());
         }
 
         [TestMethod]
@@ -126,7 +124,6 @@ namespace Chess
 
         [TestMethod]
         public void WhiteToPlay_MatesInTwo() {
-            //see image mate in two white.png
             var game = new Game();
             game.New();
             game.Reset();
@@ -153,7 +150,6 @@ namespace Chess
 
         [TestMethod]
         public void BlackToPlay_MateInTwo() {
-            //see image mate in two black.png
             var game = new Game();
             game.New();
             game.Reset();
@@ -168,7 +164,7 @@ namespace Chess
             .AddPiece("a1wR").AddPiece("e1wR").AddPiece("f1wK");
             game.CurrentPlayer = game.BlackPlayer;
             DisableCastling(game);
-            
+
             game.SetInitials();
             var engine = new Engine();
             var timer = Stopwatch.StartNew();
@@ -182,7 +178,6 @@ namespace Chess
             Console.WriteLine(evaluation.ToString());
 
             Assert.AreEqual("Rg1+", evaluation.Move.ToString());
-            //Assert.AreEqual("Rg1+ Nxg1 Qxg2#", move.ToString());
             Assert.IsTrue(timer.ElapsedMilliseconds < timeLimit, "timer.ElapsedMilliseconds < timeLimit");
         }
 
@@ -244,13 +239,11 @@ namespace Chess
 #if DEBUG
             Assert.Fail("Run this test in release configuration");
 #endif
-            //var expectedNodes = 330000;
             var gameFile = GameFile.Load("TestGames\\performance1.txt");
             Game.Load(gameFile);
             var engine = new Engine();
             var evaluation = engine.BestMoveDeepeningSearch(Game, TimeSpan.FromSeconds(10));
             Console.WriteLine(evaluation);
-            //Assert.IsTrue(evaluation.Nodes > expectedNodes);
         }
 
 

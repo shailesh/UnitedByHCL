@@ -65,19 +65,18 @@ namespace Chess
 
             var pieceType = (int)move.Piece.Type;
 
-            if (!move.IsPromotion) { 
+            if (!move.IsPromotion) {
                 hash = ZobristArray[pieceType, ts.Index]; //piece on new square
                 hash ^= ZobristArray[pieceType, fs.Index]; //piece off
             } else {
                 var pawnType = move.PromotedPawn.Type;
-                hash = ZobristArray[pawnType, fs.Index]; //pawn off                 
+                hash = ZobristArray[pawnType, fs.Index]; //pawn off
                 var type = move.Piece.Color == Color.Black ? PieceType.BlackQueen : PieceType.WhiteQueen;
-                hash ^= ZobristArray[(int)type, ts.Index]; //queen on new square 
+                hash ^= ZobristArray[(int)type, ts.Index]; //queen on new square
             }
 
             if (move.Capture != null) {
                 hash ^= ZobristArray[move.Capture.Type, move.CapturedFrom.Index];
-                //captured piece off, includes en passant
             }
 
             if (move.IsCastling) {
@@ -85,7 +84,7 @@ namespace Chess
                 hash ^= ZobristArray[move.CastleRook.Type, move.CastleRook.Square.Index];
                 hash ^= Castling[rookSquareIndex];
             }
-                        
+
             hash ^= Side[(int)move.Piece.Color];
             move.Hash = hash;
         }
@@ -93,8 +92,6 @@ namespace Chess
         internal void GetValue(Game game, Move move) {
             int eval;
             if (Dictionary.TryGetValue(game.Hash, out eval)) {
-                //It is nice not to have to evaluate illegal moves all the time.
-                //But we have to handle occasional hash collisions, though they are very rare. Not even one during a game it seems.
                 Unpack(eval, out byte commandCount, out bool legal, out bool check, out ScoreInfo scoreInfo, out int score, out int depth);
                 if (!legal) {
                     move.IsLegal = false;
@@ -124,8 +121,6 @@ namespace Chess
                         {
                             Dictionary[game.Hash] = eval;
                         }
-                        //Collisions++;
-                        //Dictionary.Remove(game.Hash);
                     }
                 } else {
                     Dictionary.Add(game.Hash, eval);
@@ -164,7 +159,6 @@ namespace Chess
         }
 
         /// <summary>
-        /// Converts all the arguments to an int.
         /// </summary>
         /// <param name="commandNo">7 bit max 127</param>
         /// <param name="legal">1 bit</param>
@@ -202,8 +196,6 @@ namespace Chess
             Debug.WriteLine("Before clean: " + Dictionary.Count);
             lock (_cleanLockObject) {
                 while (Dictionary.Count > 2500000) {
-                    //Removing all commands older than i.
-                    //If the dictionary is still to large it decreases the boundary age of commands that should be removed.
                     Dictionary = Dictionary.Where(x => ((x.Value >> 25) & 0x7F) > OldestCommands)
                             .ToDictionary(x => x.Key, x => x.Value);
                     OldestCommands++;

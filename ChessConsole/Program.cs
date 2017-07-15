@@ -10,13 +10,11 @@ using Chess;
 namespace ChessConsole
 {
     /// <summary>
-    /// This program is used for running performance profiling.
     /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            //TestPerformance();
             TestEnginePerformance();
             Console.ReadLine();
         }
@@ -28,7 +26,6 @@ namespace ChessConsole
                 testClass.Setup();
                 var watch = Stopwatch.StartNew();
                 testClass.TestGamePerformance();
-                //testClass.Perft();
                 Console.WriteLine(watch.ElapsedMilliseconds);
             } catch (Exception ex) {
                 Console.WriteLine(ex);
@@ -42,7 +39,6 @@ namespace ChessConsole
             {
                 testClass.Setup();
                 var watch = Stopwatch.StartNew();
-                //testClass.TestGamePerformance();
                 testClass.TestBestMoveBlackToPlay();
             }
             catch (Exception ex)

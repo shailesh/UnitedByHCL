@@ -14,7 +14,7 @@ namespace Chess
             var board = new Board();
             Assert.AreEqual(64, board.Squares.Length);
         }
-        
+
         [TestInitialize]
         public void Setup()
         {
@@ -28,19 +28,19 @@ namespace Chess
         public void TestMaterial()
         {
             Assert.AreEqual(0, Game.Material);
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.D, Rank._2, File.D, Rank._4))); //d4
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.E, Rank._7, File.E, Rank._5))); // - e5
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.D, Rank._4, File.E, Rank._5))); //dxe5
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.D, Rank._2, File.D, Rank._4)));
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.E, Rank._7, File.E, Rank._5)));
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.D, Rank._4, File.E, Rank._5)));
             Assert.AreEqual(-100, Game.Material);
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.F, Rank._7, File.F, Rank._6))); // - f6
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.A, Rank._2, File.A, Rank._3))); //a3
-            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.F, Rank._6, File.E, Rank._5))); // - fxe5
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.F, Rank._7, File.F, Rank._6)));
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.A, Rank._2, File.A, Rank._3)));
+            Assert.IsTrue(Game.TryPossibleMoveCommand(new MoveCommand(File.F, Rank._6, File.E, Rank._5)));
             Assert.AreEqual(0, Game.Material);
-            Game.UndoLastMove(); // - fxe5
+            Game.UndoLastMove();
             Assert.AreEqual(-100, Game.Material);
-            Game.UndoLastMove(); // a3
-            Game.UndoLastMove(); // - f6
-            Game.UndoLastMove(); //dxe5
+            Game.UndoLastMove();
+            Game.UndoLastMove();
+            Game.UndoLastMove();
             Assert.AreEqual(0, Game.Material);
         }
 
@@ -70,9 +70,9 @@ namespace Chess
             Game.AddPiece(File.E, Rank._1, new King(Color.White));
             Game.AddPiece(File.E, Rank._8, new King(Color.Black));
 
-            Game.AddPiece(File.E, Rank._2, new Pawn(Color.White));//white square
-            Game.AddPiece(File.F, Rank._3, new Pawn(Color.White));//white square
-            Game.AddPiece(File.F, Rank._1, new Bishop(Color.White));//white square
+            Game.AddPiece(File.E, Rank._2, new Pawn(Color.White));
+            Game.AddPiece(File.F, Rank._3, new Pawn(Color.White));
+            Game.AddPiece(File.F, Rank._1, new Bishop(Color.White));
             Game.SetInitials();
             var bishop = (Bishop)Game.Board.Square(File.F, (int)Rank._1).Piece;
             Assert.AreEqual(0, bishop.PositionValue(Game));
@@ -128,16 +128,14 @@ namespace Chess
             Console.WriteLine(PositionsDatabase.Instance.ToString());
 
             var moveSpeed = Game.MoveCount / (double)watch.ElapsedMilliseconds * 1000;
-            
+
             Console.WriteLine($"{loadCount} moves\r\n{gameCount} games\r\v{(int)moveSpeed} moves/sec");
 #if DEBUG
-            //var expectedSpeed = 150000;
 #else
             var expectedSpeed = 300000;
 #endif
-//            Assert.IsTrue(moveSpeed > expectedSpeed);
-            
+
         }
-        
+
     }
 }
