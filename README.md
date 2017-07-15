@@ -1,6 +1,6 @@
 # UnitedByHCL
 Brain controlled Artificial Intelligence Chess for Hackathon #UnitedByHCL
-
+<pre>
 Title:       Test Driven Chess Artificial Intelligence
 Author:      Shailesh Singh
 Email:       shailesh@mit.tc
@@ -11,6 +11,7 @@ Level:       Advanced
 Description: Chess engine and simple chess user interface.
 Section      General Programming
 SubSection   Artificial Intelligence and Machine Learning
+</pre>
 
 <h2>Introduction</h2>
     <p>This is a fully functional chess program that I aim to build for the UnitedByHCL Hackathon. This is a standard object oriented C# solution that is meant to be easier to understand. The focus has not been to make a fast and high rated chess engine. I have developed a working chess AI that plays descent good moves with code that you hopefully like to read. A few of the more specific goals have been to correctly implement Alpha Beta Pruning and Zobrist Hashing in a way that I think can be understood by Jury. Next I've implemented this game with the Neurosky device to play the game with brain controling activity.</p>
